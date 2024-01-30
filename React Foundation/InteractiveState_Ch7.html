@@ -4,19 +4,19 @@
 		<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
 		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-		<!-- Babel Script-->
 		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 		<script type="text/jsx">
 
 			const app = document.getElementById('app');
 
-			function createTitle(title){
-				if (title) {
-					return title;
-				} else {
-					return "Default Title XX"
-				}
-			}
+			function createTitle(title) {
+			         if (title) {
+			             return title
+			         }
+			         else {
+			             return "Default Title XX"
+			         }
+			     }
 
 			function Header({ title }) {
 				//console.log({title})
@@ -26,16 +26,23 @@
 			  function HomePage() {
 				const names = ['John', 'Paul', 'George', 'Ringo'];
 
-				return(
+				function handleClick() {
+					console.log('Clicked incremented like count');
+				  }
+
+				return (
 					<div>
 						<Header title="I am Eating" />
-						<Header title="I am Sleeping" />
-						<ul>
-							{names.map((name) => (<li key={name}>{}</li>))}
-						</ul>
 
-					</div>);
+						<ul>
+							{names.map((name) => (<li key={name}>{name}</li>))}
+						</ul>
+						<button onClick={handleClick}>Likes</button>
+					</div>
+					);
 			  }
+
+
 
 
 			const root = ReactDOM.createRoot(app);
