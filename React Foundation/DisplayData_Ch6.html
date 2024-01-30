@@ -10,13 +10,33 @@
 
 			const app = document.getElementById('app');
 
-			function Header() {
-				return (<h1> Develop. Preview. Ship. </h1>);
+			function createTitle(title){
+				if (title) {
+					return title;
+				} else {
+					return "Default Title XX"
+				}
+			}
+
+			function Header({ title }) {
+				//console.log({title})
+				return (<h1> {title ? title : 'Default Title'} </h1>);
 			  }
 
 			  function HomePage() {
-				return(<div><Header /></div>);
+				const names = ['John', 'Paul', 'George', 'Ringo'];
+
+				return(
+					<div>
+						<Header title="I am Eating" />
+						<Header title="I am Sleeping" />
+						<ul>
+							{names.map((name) => (<li key={name}>{name}</li>))}
+						</ul>
+
+					</div>);
 			  }
+
 
 			const root = ReactDOM.createRoot(app);
 			root.render(<HomePage />);
